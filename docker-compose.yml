@@ -3,6 +3,8 @@ version: '1.0'
 networks:
   k6:
   grafana:
+  host:
+  bridge:
 
 services:
   influxdb:
@@ -10,6 +12,8 @@ services:
     networks:
       - k6
       - grafana
+      - host
+      - bridge
     ports:
       - "8086:8086"
     environment:
@@ -19,6 +23,8 @@ services:
     image: grafana/grafana:latest
     networks:
       - grafana
+      - host
+      - bridge
     ports:
       - "3000:3000"
     environment:
@@ -35,6 +41,8 @@ services:
     image: loadimpact/k6:latest
     networks:
       - k6
+      - host
+      - bridge
     ports:
       - "6565:6565"
     environment:

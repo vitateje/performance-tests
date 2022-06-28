@@ -1,64 +1,10 @@
-Testes de performance com K6 e Docker Compose
-SHARE
- 
-Criar testes de performance nem sempre é uma tarefa simples. Porém, avaliar os resultados dessa execução e entender todas as métricas que normalmente são geradas em uma tabela longa e extensa, com várias linhas e colunas, pode ser ainda mais complexo.
 
-Essa tarefa poderia ser simplificada se tivéssemos uma ferramenta de fácil usabilidade e que gerasse dashboards com métricas e informações das execuções. A boa notícia é que essa ferramenta existe: a K6 + Grafana + InfluxDB com Docker Compose.
 
-Vamos explorar e entender como criar um teste de performance utilizando essa ferramenta.
-
-Testes de Performance
-Antes de explorar a solução, vamos entender o que é o teste de performance e os seus diferentes tipos de execução.
-
-O teste de performance ou de desempenho é uma maneira de avaliar como um sistema está performando, ou seja, simulamos um volume de usuários simultâneos, fazendo transações em um ambiente controlado e monitorado a fim de verificar como a aplicação irá se comportar.
-
-Existem vários  tipos de testes com diferentes focos, confira:
-
-Smoke Test: Rodamos com o volume mínimo (1 usuário) para verificar se o sistema consegue lidar com essa carga antes de disparar outros tipos de testes. Exemplo:
-1 usuário – 1 minuto
-
-Teste de Carga: Teste focado em validar se o sistema está preparado para suportar a quantidade de usuários esperados na aplicação em condições normais. Exemplo:
-60 usuários – 5 minutos
-
-60 usuários – 10 minutos
-
-100 usuários – 3 minutos
-
-60 usuários – 5 minutos
-
-Teste de Stress: O foco deste teste é encontrar os limites do sistema. O propósito é verificar a estabilidade e confiabilidade do sistema em condições extremas. Exemplo:
-100 usuários – 5 minutos
-
-200 usuários – 5 minutos
-
-300 usuários – 5 minutos
-
-400 usuários – 5 minutos
-
-Teste de Spike (Pico): É uma variação do teste de stress. A diferença é que a carga de usuários não é incrementada aos poucos, ao invés disso, a carga aumenta consideravelmente em um curto período. Exemplo:
-100 usuários – 1 minuto
-
-600 usuários – 3 minutos
-
-100 usuários – 1 minuto
-
-Endurance Test: O objetivo deste teste é validar a confiabilidade do sistema por um longo período. Exemplo:
-60 usuários – 5 horas
-
-Agora que você conheceu os diferentes tipos de testes, apresentamos como aplicá-los com K6.
-
-A solução com K6
-K6 é uma solução para performance relativamente nova no mercado e utilizada por grandes empresas. A própria ferramenta oferece integração com outras aplicações, como Nuvens, Grafana e InfluxDB.
-
-Para testar, na prática, é necessário clonar um projeto do GitHub que já está configurado para ser utilizado. Para que tudo funcione, é preciso ter o Docker instalado na sua máquina.
-
-Para clonar o projeto, abra um terminal e digite o seguinte comando:
-
-git clone https://github.com/pehguerra/k6-boilerplate
+git clone https://github.com/vitateje/performance-tests
 
 Com Docker rodando e projeto clonado, entre na pasta do projeto, faça upload dos containers e dispare os testes com os seguintes comandos:
 
-cd k6-boilerplate
+cd performance-tests
 docker-compose up -d influxdb grafana
 docker-compose run k6 run /scripts/conexaoQA.js
 
