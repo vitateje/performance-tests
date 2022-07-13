@@ -5,9 +5,9 @@ export const url = 'http://host.docker.internal:80';
 
 export const options = {
     stages: [
-        { duration: '2m', target: 14 }, // ramp up até 14 usuários
-        { duration: '10m', target: 14 }, // mantém 14 usuários por 10 minutos
-        { duration: '2m', target: 0 }, // ramp-down (opcional)
+        { duration: '2m', target: 14 }, // ramp up to 14 users
+        { duration: '10m', target: 14 }, // keep 14 users for 10 minutes
+        { duration: '2m', target: 0 }, // ramp-down (optional)
     ],
 };
 
@@ -16,5 +16,3 @@ export default function () {
     http.get(url);
     sleep(1);
 }
-
-// soak test - testes de imersao

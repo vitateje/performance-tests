@@ -5,8 +5,8 @@ export const url = 'http://host.docker.internal:80';
 
 export const options = {
     stages: [
-        { duration: '5m', target: 10 }, // Ramp-up até 10 usuários
-        { duration: '10m', target: 10 }, // mantém 10 usuários por 10 minutos
+        { duration: '5m', target: 10 }, // ramp-up to 10 users
+        { duration: '10m', target: 10 }, // keep 10 users for 10 minutes
         { duration: '5m', target: 0 }, // ramp-down to 0 users
     ],
     thresholds: {

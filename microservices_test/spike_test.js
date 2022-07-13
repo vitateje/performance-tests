@@ -5,11 +5,11 @@ export const url = 'http://host.docker.internal:80';
 
 export const options = {
     stages: [
-        { duration: '10s', target: 3 }, //Abaixo da carga normal
+        { duration: '10s', target: 3 }, //low of normal load
         { duration: '1m', target: 3 },
-        { duration: '10s', target: 14 }, // pico para 14 usuários
-        { duration: '3m', target: 14 }, // mantém os 14 usuários por 3 minutos
-        { duration: '10s', target: 3 }, // ramp-down. Recuperação.
+        { duration: '10s', target: 14 }, // spike for 14 users
+        { duration: '3m', target: 14 }, // keep 14 users for 3 minutes
+        { duration: '10s', target: 3 }, // ramp-down - recovery
         { duration: '3m', target: 3 },
         { duration: '10s', target: 0 },
     ],

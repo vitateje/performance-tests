@@ -13,7 +13,7 @@ export const options = {
         { duration: '5s', target: 0 }
     ],
     thresholds: {
-        // throws error if more than 90% of the requests takes more than 2 seconds to be completed
+        // throws error if more than 90% of the requests takes more than 15000 ms to be completed
         http_req_duration: [
             {
                 threshold: 'p(90) < 15000',
